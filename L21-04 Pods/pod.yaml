@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  labels:
+    name: myapp
+spec:
+  containers:
+  - name: myapp-nginx-contanier
+    image: nginx
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 80
+        name: http
+        protocol: TCP
+    env:
+      - name: abc
+        value: sdsdf

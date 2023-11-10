@@ -29,4 +29,3 @@ Refresh the frontend page a few times, the logs should display each hit
 Was the app really removed?
 
     docker compose ps
-
