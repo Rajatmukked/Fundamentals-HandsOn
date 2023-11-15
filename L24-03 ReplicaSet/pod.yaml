@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-rs
+  labels:
+    app: myapp
+spec:
+  # modify replicas according to your case
+  replicas: 5
+  selector:
+    matchLabels:    #match with template lable
+      app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+      - name: myapp-cont
+        image: nginx:alpine
+        ports:
+        - name: http
+          containerPort:  80
+          protocol: TCP
+        resources:
+          requests:
+            cpu: 100m
+            memory: "128Mi"
+          limits:
+            cpu: 200m
+            memory: "256Mi"
+

@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: deploy-example
+  name: testdeploy
 spec:
   replicas: 3
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: app-example
-      env: prod
+      app: myapp
+      env : prod
   template:
     metadata:
       labels:
-        app: app-example
-        env: prod
+        app: myapp
+        env : prod
     spec:
       containers:
-      - name: nginx
+      - name: myapp-cont
         image: nginx:alpine
         resources:
           requests:
-            memory: 128Mi
+            memory: "128Mi"
             cpu: 100m
           limits:
-            memory: 256Mi
-            cpu: 200m
+            memory: "256Mi"
+            cpu: "500m"
         ports:
         - containerPort: 80
